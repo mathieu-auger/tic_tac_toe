@@ -21,12 +21,12 @@ printBoard(board)
   
 # take player input 
 def playerInput(board):
-  inp = int(input("Enter a number between 1-9"))
+  inp = int(input("Enter a number between 1-9 : "))
 #check if the input is between 1-9 by using the if statement
   if inp >= 1 and inp <= 9 and board[inp-1] == "-":
      board[inp-1] = currentPlayer 
   else:
-    print("player is already in that spot! ")
+    print(" player is already in that spot! ")
     
     
     
@@ -49,10 +49,10 @@ def checkRow(board):
       winner = board[0]
       return True
     elif board[1] == board[4] == board[7] and board[1] != "-":
-      winner = board[0]
+      winner = board[1]
       return True
     elif board[2] == board[5] == board[8] and board[2] != "-":
-      winner = board[0]
+      winner = board[2]
       return True
     
 def checkDiag(board):
@@ -61,7 +61,7 @@ def checkDiag(board):
       winner = board[0]
       return True    
   elif board[2] == board[4] == board[6] and board[2] != "-":
-      winner = board[0]
+      winner = board[2]
       return True     
 
 def checkTie(board):
@@ -74,8 +74,10 @@ def checkTie(board):
     
 def checkWin():
     if checkDiag(board) or checkHorizontle(board) or checkRow(board):
-      print(f"the winner is{winner}")  
-    
+      print(f"the winner is {winner}")  
+      exit()  
+      
+      
 # switch the player  
 def switchPlayer():
   global currentPlayer
